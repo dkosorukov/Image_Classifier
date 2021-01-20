@@ -51,6 +51,19 @@ def get_input_args():
     return args
 
 def save_checkpoint(filepath, model, optimizer, arch, epochs, learning_rate, hidden_units, train_dict):
+
+    """
+    This function creats a checkpoint object to save model parametrs to a given path
+    Parametrs:
+        filepath: path and name of a file to save checkpoint into
+        model: model object
+        optimizer: training optimizer object
+        arch: model architecture
+        epochs: number of training epochs
+        learning_rate: learning rate for training
+        hidden_units: number of hidden units in the fully connected layer
+        train_dict: class to index dictionary
+    """
     model.class_to_idx = train_dict
     device = torch.device("cpu")
     model.to(device)
